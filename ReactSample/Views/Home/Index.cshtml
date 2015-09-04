@@ -14,9 +14,30 @@
 <body>
 <a href="/Home/AngularComments">Go to Angular Comments</a>
 <div id="content"></div>
-    <script src="https://fb.me/react-0.13.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<script src="https://fb.me/react-0.13.3.min.js"></script>
 <script src="@Url.Content("~/Scripts/showdown.js")"></script>
 <script src="@Url.Content("~/Scripts/Tutorial.jsx")"></script>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+        div {
+            margin-bottom: 10px;
+        }
+
+        .comment {
+            background-color: aqua;
+            border: 1px Solid grey;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            padding-left: 5px;
+        }
+
+            .comment .comment-header {
+                font-weight: bold;
+            }
+
+            .comment .comment-body {
+                text-indent: 5px;
+            }
+    </style>
 </body>
 </html>

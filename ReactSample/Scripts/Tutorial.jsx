@@ -2,17 +2,10 @@
 
 var CommentBox = React.createClass({
   loadCommentsFromServer: function() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('get', this.props.url, true);
-    xhr.onload = function() {
-      var data = JSON.parse(xhr.responseText);
-      var start = new Date().getTime();
-      console.log(start);
-      this.setState({ data: data });
-      var stop = new Date().getTime();
-      console.log(stop);
-    }.bind(this);
-    xhr.send();
+      $.get(this.props.url, function (result) {
+          var data = JSON.parse(result);
+          this.setState({ data: data });
+      }.bind(this));
   },
   getInitialState: function() {
     return {data: []};
@@ -23,9 +16,9 @@ var CommentBox = React.createClass({
   render:function() {
     var items = [];
     for (var i = 0; i < this.state.data.length; i++) {
-	items.push(React.createElement("li", { className:"list-group-item" },
-                                    React.createElement("p", null, this.state.data[i].Author),
-									React.createElement("p", null, this.state.data[i].Text)
+        items.push(React.createElement("div", { className:"comment" },
+                                    React.createElement("p", { className: "comment-header" }, this.state.data[i].Author),
+									React.createElement("p", { className: "comment-header" }, this.state.data[i].Text)
                                 ));
     }
 
