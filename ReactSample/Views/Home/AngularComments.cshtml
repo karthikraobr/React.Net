@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AngComments</title>
+
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="commentsCtrl">
+        <h1>Angular for loading <span>{{totalCommentCount}}</span> records</h1>
+        <a href="/Home"><< Back to React Comments</a>
+
+
+        <div ng-repeat="x in comments" class="comment-body">
+            <div class="comment">
+                <p>{{x.Author}}</p>
+                <p>{{x.Text}}</p>
+            </div>
+        </div>
+        <div id="error"></div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script type="text/javascript">
+
+        var app = angular.module('myApp', []);
+
+        var urlSegments = location.href.split('/');
+        var baseUrl = urlSegments[0] + '//' + urlSegments[2];
+
+        app.controller('commentsCtrl', function ($scope, $http) {
+            $http.get(baseUrl + "/Home/Comments")
+                .success(function (response) {
+                    $scope.comments = response;
+                    $scope.totalCommentCount = response.length;
+                })
+            .error(function (response) {
+                $('#error').append(response.data);
+            });
+        });
+    </script>
+</body>
+</html>

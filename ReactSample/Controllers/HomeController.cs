@@ -30,5 +30,9 @@ namespace ReactSample.Controllers
             return Json(_comments, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult AngularComments()
+        {
+            return View();
+        }
     }
 }
