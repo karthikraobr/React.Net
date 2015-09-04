@@ -1,0 +1,21 @@
+﻿@*@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+
+<h2>Index</h2>
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <title>Hello React</title>
+</head>
+<body>
+    <div id="content"></div>
+    <script src="@Url.Content("~/Scripts/react.js")"></script>
+    <script src="@Url.Content("~/Scripts/showdown.js")"></script>
+    <script src="@Url.Content("~/Scripts/Tutorial.jsx")"></script>
+    
+</body>
+</html>
