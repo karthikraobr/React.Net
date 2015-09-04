@@ -16,10 +16,13 @@ namespace ReactSample.Controllers
         }
 
         [OutputCache(Location = OutputCacheLocation.None)]
-        public ActionResult Comments()
+        public ActionResult Comments(int? count)
         {
+            if (count == null) count = 15000;
+            if (count > 50000) count = 50000;
+
             IList<CommentModel> _comments= new List<CommentModel>();
-            for (int i = 0; i <= 25000; i++)
+            for (int i = 1; i <= count; i++)
             {
                 _comments.Add(new CommentModel
                 {
@@ -27,7 +30,13 @@ namespace ReactSample.Controllers
                     Text = string.Format ("Hello number {0} ReactJS.NET World!",i)
                 });
             }
-            return Json(_comments, JsonRequestBehavior.AllowGet);
+
+            return new JsonResult()
+            {
+                Data = _comments,
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                MaxJsonLength = Int32.MaxValue
+            };
         }
 
         public ActionResult AngularComments()
