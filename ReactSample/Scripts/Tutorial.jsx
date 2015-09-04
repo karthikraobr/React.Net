@@ -6,11 +6,11 @@ var CommentBox = React.createClass({
     xhr.open('get', this.props.url, true);
     xhr.onload = function() {
       var data = JSON.parse(xhr.responseText);
-	  var start = new Date().getTime();
-	  console.log(start);
+      var start = new Date().getTime();
+      console.log(start);
       this.setState({ data: data });
-	  var stop = new Date().getTime();
-	  console.log(stop);
+      var stop = new Date().getTime();
+      console.log(stop);
     }.bind(this);
     xhr.send();
   },
@@ -75,6 +75,6 @@ var Comment = React.createClass({
 });
 
 React.render(
-  <CommentBox url="/home/comments"/>,
+  <CommentBox url="/Home/Comments"/>,
   document.getElementById('content')
 );

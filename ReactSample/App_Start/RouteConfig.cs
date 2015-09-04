@@ -14,15 +14,24 @@ namespace ReactSample
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "AngComments",
+                url: "Home/Comments/{count}",
+                defaults: new { controller = "Home", action = "Comments", count = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-            routes.MapRoute(
-                name: "Comments",
-                url: "comments",
-                defaults: new { controller = "Home", action = "Comments" }
-            );
+
+            //routes.MapRoute(
+            //    name: "Comments",
+            //    url: "comments",
+            //    defaults: new { controller = "Home", action = "Comments" }
+            //);
+
+            
         }
     }
 }
