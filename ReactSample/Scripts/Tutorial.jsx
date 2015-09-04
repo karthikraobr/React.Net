@@ -20,19 +20,20 @@ var CommentBox = React.createClass({
   componentDidMount: function() {
     this.loadCommentsFromServer();
   },
-  render: function() {
-    return (
-	<ul className="list-group">
-            {this.state.data.map(function(x) {
-                return <li className="list-group-item">
-                <p>{x.Author}</p>
-                <p>{x.Text}</p>
-            </li>
-            })}
-    </ul>
-    );
-  }
+  render:function() {
+    var items = [];
+    for (var i = 0; i < this.state.data.length; i++) {
+	items.push(React.createElement("li", { className:"list-group-item" },
+                                    React.createElement("p", null, this.state.data[i].Author),
+									React.createElement("p", null, this.state.data[i].Text)
+                                ));
+    }
+
+    return React.createElement("ul", {className:"list-group"}, items);
+}
 });
+
+
 
 
 React.render(
