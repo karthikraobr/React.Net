@@ -19,11 +19,11 @@ namespace ReactSample.Controllers
         public ActionResult Comments()
         {
             IList<CommentModel> _comments= new List<CommentModel>();
-            for (int i = 0; i <= 15000; i++)
+            for (int i = 0; i <= 25000; i++)
             {
                 _comments.Add(new CommentModel
                 {
-                    Author = "Daniel Lo Nigro" + i,
+                    Author = "John Doe Number " + i,
                     Text = string.Format ("Hello number {0} ReactJS.NET World!",i)
                 });
             }
