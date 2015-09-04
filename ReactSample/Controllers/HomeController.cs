@@ -26,7 +26,7 @@ namespace ReactSample.Controllers
             {
                 _comments.Add(new CommentModel
                 {
-                    Author = "Daniel Lo Nigro" + i,
+                    Author = "John Doe Number " + i,
                     Text = string.Format ("Hello number {0} ReactJS.NET World!",i)
                 });
             }
