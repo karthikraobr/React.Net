@@ -23,8 +23,8 @@ namespace ReactSample.Controllers
             {
                 _comments.Add(new CommentModel
                 {
-                    Author = "Daniel Lo Nigro",
-                    Text = "Hello ReactJS.NET World!"
+                    Author = "Daniel Lo Nigro" + i,
+                    Text = string.Format ("Hello number {0} ReactJS.NET World!",i)
                 });
             }
             return Json(_comments, JsonRequestBehavior.AllowGet);
