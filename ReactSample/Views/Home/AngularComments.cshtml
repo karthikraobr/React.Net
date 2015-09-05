@@ -41,7 +41,7 @@
 
     <div>Record Count: <input type="text" ng-model="maxCommentCount" ng-blur="run()"/><span ng-bind="status"></span></div>
 
-    <div ng-repeat="x in comments">
+    <div ng-repeat="x in comments track by x.Id">
         <div class="comment">
             <p ng-bind="x.Author" class="comment-header"></p>
             <p ng-bind="x.Text" class="comment-body"></p>
