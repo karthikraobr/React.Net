@@ -16,7 +16,7 @@ var CommentBox = React.createClass({
   render:function() {
     var items = [];
     for (var i = 0; i < this.state.data.length; i++) {
-        items.push(React.createElement("div", { className:"comment" },
+        items.push(React.createElement("div", { className:"comment" ,key:this.state.data[i].Id},
                                     React.createElement("p", { className: "comment-header" }, this.state.data[i].Author),
 									React.createElement("p", { className: "comment-header" }, this.state.data[i].Text)
                                 ));
