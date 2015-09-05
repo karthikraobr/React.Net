@@ -18,7 +18,7 @@ namespace ReactSample.Controllers
         [OutputCache(Location = OutputCacheLocation.None)]
         public ActionResult Comments(int? count)
         {
-            if (count == null) count = 15000;
+            if (count == null) count = 50000;
             if (count > 50000) count = 50000;
 
             IList<CommentModel> _comments= new List<CommentModel>();
@@ -28,7 +28,7 @@ namespace ReactSample.Controllers
                 {
                     Id=i,
                     Author = "John Doe Number " + i,
-                    Text = string.Format ("Hello number {0} ReactJS.NET World!",i)
+                    Text = string.Format ("Hello World - {0}",i)
                 });
             }
 
