@@ -8,6 +8,7 @@ var CommentBox = React.createClass({
       var data = JSON.parse(xhr.responseText);
       var start = new Date().getTime();
       console.log(start);
+	  fakeData = data;
       this.setState({ data: data });
       var stop = new Date().getTime();
       console.log(stop);
@@ -21,22 +22,12 @@ var CommentBox = React.createClass({
     this.loadCommentsFromServer();
   },
   render:function() {
-    var items = [];
-    for (var i = 0; i < this.state.data.length; i++) {
-	items.push(React.createElement("li", { className:"list-group-item" },
-                                    React.createElement("p", null, this.state.data[i].Author),
-									React.createElement("p", null, this.state.data[i].Text)
-                                ));
-    }
 
-    return React.createElement("ul", {className:"list-group"}, items);
+    return (  <Griddle results={this.state.data} columns={["Id", "Author", "Text"]} showFilter={true}
+ showSettings={true} resultsPerPage={1000}/>);
 }
 });
-
-
-
-
 React.render(
-  <CommentBox url="/Home/Comments"/>,
+<CommentBox url="/Home/Comments"/>,
   document.getElementById('content')
 );

@@ -19,8 +19,8 @@ namespace ReactSample.Controllers
         [OutputCache(Location = OutputCacheLocation.None)]
         public ActionResult Comments(int? count)
         {
-            if (count == null) count = 15000;
-            if (count > 50000) count = 50000;
+            if (count == null) count = 100000;
+            if (count > 50000) count = 100000;
 
             IList<CommentModel> _comments= new List<CommentModel>();
             for (int i = 1; i <= count; i++)
