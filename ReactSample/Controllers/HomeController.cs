@@ -19,17 +19,19 @@ namespace ReactSample.Controllers
         [OutputCache(Location = OutputCacheLocation.None)]
         public ActionResult Comments(int? count)
         {
-            if (count == null) count = 15000;
-            if (count > 50000) count = 50000;
+            if (count == null) count = 100000;
+            if (count > 50000) count = 100000;
 
             IList<CommentModel> _comments= new List<CommentModel>();
+            Random r = new Random();
+            int rInt = r.Next(0, 100); //for ints
             for (int i = 1; i <= count; i++)
             {
                 _comments.Add(new CommentModel
                 {
                     Id = i,
-                    Author = "John Doe Number " + i,
-                    Text = string.Format ("Hello number {0} ReactJS.NET World!",i)
+                    Name = "John Doe Number " + i,
+                    Department =r.Next(1, 4)
                 });
             }
 
